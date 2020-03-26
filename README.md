@@ -22,11 +22,11 @@ docker run ... -e ONLINE_MODE=FALSE itzg/minecraft-server
   The Jenkins job ID of the artifact to download and run and is used when
   deriving the default value of `WATERFALL_JAR_URL`
 
-* **WATERFALL_BASE_URL**=https://papermc.io/api/v1/waterfall/1.15
+* **WATERFALL_BASE_URL**=https://papermc.io/ci/job/Waterfall
 
   Used to derive the default value of `WATERFALL_JAR_URL`
 
-* **WATERFALL_JAR_URL**=${WATERFALL_BASE_URL}/${WATERFALL_JOB_ID}/download
+* **WATERFALL_JAR_URL**=${WATERFALL_BASE_URL}/${WATERFALL_JOB_ID}/artifact/Waterfall-Proxy/bootstrap/target/Waterfall.jar
 
   If set, can specify a custom, fully qualified URL of the server.jar
 
