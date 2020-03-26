@@ -2,7 +2,7 @@ This is a Docker image of [Waterfall](https://github.com/PaperMC/Waterfall)
 and is intended to be used at the front-end of a cluster of
 [itzg/minecraft-server](https://hub.docker.com/r/itzg/minecraft-server/) containers.
 
-[![Docker Automated buil](https://img.shields.io/docker/automated/zeprof2code/waterfall.svg)](https://hub.docker.com/r/zeprof2code/waterfall/)
+[![Docker Automated buil](https://img.shields.io/docker/automated/zeprof2code/docker-waterfall.svg)](https://hub.docker.com/r/zeprof2code/docker-waterfall/)
 
 ## Using with itzg/minecraft-server image
 
