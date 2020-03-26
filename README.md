@@ -1,4 +1,4 @@
-This is a Docker image of [BungeeCord](https://www.spigotmc.org/wiki/bungeecord/)
+This is a Docker image of [Waterfall](https://github.com/PaperMC/Waterfall)
 and is intended to be used at the front-end of a cluster of
 [itzg/minecraft-server](https://hub.docker.com/r/itzg/minecraft-server/) containers.
 
@@ -17,18 +17,18 @@ docker run ... -e ONLINE_MODE=FALSE itzg/minecraft-server
 
 ## Environment Settings
 
-* **BUNGEE_JOB_ID**=lastStableBuild
+* **WATERFALL_JOB_ID**=latest
 
   The Jenkins job ID of the artifact to download and run and is used when
-  deriving the default value of `BUNGEE_JAR_URL`
+  deriving the default value of `WATERFALL_JAR_URL`
 
-* **BUNGEE_BASE_URL**=https://ci.md-5.net/job/BungeeCord
+* **WATERFALL_BASE_URL**=https://papermc.io/api/v1/waterfall/1.15
 
-  Used to derive the default value of `BUNGEE_JAR_URL`
+  Used to derive the default value of `WATERFALL_JAR_URL`
 
-* **BUNGEE_JAR_URL**=${BUNGEE_BASE_URL}/${BUNGEE_JOB_ID}/artifact/bootstrap/target/BungeeCord.jar
+* **WATERFALL_JAR_URL**=${WATERFALL_BASE_URL}/${WATERFALL_JOB_ID}/artifact/bootstrap/target/BungeeCord.jar
 
-  If set, can specify a custom, fully qualified URL  of the BungeeCord.jar
+  If set, can specify a custom, fully qualified URL of the server.jar
 
 * **MEMORY**=512m
 
@@ -73,16 +73,16 @@ docker run ... -e ONLINE_MODE=FALSE itzg/minecraft-server
 
 * **25577**
 
-  The listening port of BungeeCord, which you will typically want to port map
+  The listening port of Waterfall, which you will typically want to port map
   to the standard Minecraft server port of 25565 using:
 
   ```
   -p 25565:25577
   ```
 
-## BungeeCord Configuration
+## Waterfall Configuration
 
-[BungeeCord Configuration Guide](https://www.spigotmc.org/wiki/bungeecord-configuration-guide/)
+[Waterfall Configuration Guide](https://www.spigotmc.org/wiki/bungeecord-configuration-guide/)
 
 ## Scenarios
 
@@ -91,4 +91,4 @@ docker run ... -e ONLINE_MODE=FALSE itzg/minecraft-server
 This image may be run as a non-root user but does require an attached `/server`
 volume that is writable by that uid, such as:
 
-    docker run ... -u $uid -v $(pwd)/data:/server itzg/bungeecord
+    docker run ... -u $uid -v $(pwd)/data:/server zeprof2code/waterfall
