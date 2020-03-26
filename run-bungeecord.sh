@@ -1,18 +1,18 @@
 #!/bin/bash
 
-BUNGEE_JAR=$BUNGEE_HOME/BungeeCord.jar
+WATERFALL_JAR=$WATERFALL_HOME/server.jar
 
-if [[ ! -e $BUNGEE_JAR ]]; then
-    echo "Downloading ${BUNGEE_JAR_URL:=${BUNGEE_BASE_URL}/${BUNGEE_JOB_ID:-lastStableBuild}/artifact/bootstrap/target/BungeeCord.jar}"
-    if ! curl -o $BUNGEE_JAR -fsSL $BUNGEE_JAR_URL; then
+if [[ ! -e $WATERFALL_JAR ]]; then
+    echo "Downloading ${WATERFALL_JAR_URL:=${WATERFALL_BASE_URL}/${WATERFALL_JOB_ID:-latest}/download}"
+    if ! curl -o $WATERFALL_JAR -fsSL $WATERFALL_JAR_URL; then
         echo "ERROR: failed to download" >&2
         exit 2
     fi
 fi
 
 if [ -d /plugins ]; then
-    echo "Copying BungeeCord plugins over..."
-    cp -r /plugins $BUNGEE_HOME
+    echo "Copying Waterfall plugins over..."
+    cp -r /plugins $WATERFALL_HOME
 fi
 
 # If supplied with a URL for a plugin download it.
@@ -41,19 +41,19 @@ done
 fi
 
 if [ -d /config ]; then
-    echo "Copying BungeeCord configs over..."
-    cp -u /config/config.yml "$BUNGEE_HOME/config.yml"
+    echo "Copying Waterfall configs over..."
+    cp -u /config/config.yml "$WATERFALL_HOME/config.yml"
 fi
 
 if [ $UID == 0 ]; then
-  chown -R bungeecord:bungeecord $BUNGEE_HOME
+  chown -R waterfall:waterfall $WATERFALL_HOME
 fi
 
 echo "Setting initial memory to ${INIT_MEMORY:-${MEMORY}} and max to ${MAX_MEMORY:-${MEMORY}}"
 JVM_OPTS="-Xms${INIT_MEMORY:-${MEMORY}} -Xmx${MAX_MEMORY:-${MEMORY}} ${JVM_OPTS}"
 
 if [ $UID == 0 ]; then
-  exec sudo -u bungeecord java $JVM_OPTS -jar $BUNGEE_JAR "$@"
+  exec sudo -u waterfall java $JVM_OPTS -jar $WATERFALL_JAR "$@"
 else
-  exec java $JVM_OPTS -jar $BUNGEE_JAR "$@"
+  exec java $JVM_OPTS -jar $WATERFALL_JAR "$@"
 fi
