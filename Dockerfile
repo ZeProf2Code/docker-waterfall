@@ -4,7 +4,7 @@ VOLUME ["/server", "/plugins", "/config"]
 WORKDIR /server
 
 ENV WATERFALL_HOME=/server \
-    WATERFALL_BASE_URL=https://papermc.io/api/v1/waterfall/1.15 \
+    WATERFALL_BASE_URL=https://papermc.io/ci/job/Waterfall/ \
     MEMORY=512m
 
 COPY *.sh /usr/bin/
