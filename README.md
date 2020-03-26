@@ -2,7 +2,7 @@ This is a Docker image of [Waterfall](https://github.com/PaperMC/Waterfall)
 and is intended to be used at the front-end of a cluster of
 [itzg/minecraft-server](https://hub.docker.com/r/itzg/minecraft-server/) containers.
 
-[![Docker Automated buil](https://img.shields.io/docker/automated/itzg/bungeecord.svg)](https://hub.docker.com/r/itzg/bungeecord/)
+[![Docker Automated buil](https://img.shields.io/docker/automated/zeprof2code/waterfall.svg)](https://hub.docker.com/r/zeprof2code/waterfall/)
 
 ## Using with itzg/minecraft-server image
 
@@ -26,7 +26,7 @@ docker run ... -e ONLINE_MODE=FALSE itzg/minecraft-server
 
   Used to derive the default value of `WATERFALL_JAR_URL`
 
-* **WATERFALL_JAR_URL**=${WATERFALL_BASE_URL}/${WATERFALL_JOB_ID}/artifact/bootstrap/target/BungeeCord.jar
+* **WATERFALL_JAR_URL**=${WATERFALL_BASE_URL}/${WATERFALL_JOB_ID}/download
 
   If set, can specify a custom, fully qualified URL of the server.jar
 
